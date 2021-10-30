@@ -1,6 +1,10 @@
 <template>
     <div>
-DEtail
+DETAILS FOR COAC
+
+<router-link to="/coaches/c1/contact">COntact</router-link>
+
+<router-view></router-view>
     </div>
 </template>
 
