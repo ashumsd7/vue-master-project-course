@@ -13,7 +13,11 @@ const router = createRouter({
     routes:[
          {path:'/', redirect:'/coaches'},
         {path:'/coaches', component:CoachesList},
-        {path:'/coaches/:id', component:CoachDetail, children:[
+        {path:'/coaches/:id', component:CoachDetail,
+
+        //after adding props true : child route will get 'id' id means that dynbamic thing as prop
+        props:true,
+        children:[
             {path:'contact', component:ContactCoach}  //  /coaches/c1/contact
         ]},
         {path:'/register', component:CoachRegistartion},
