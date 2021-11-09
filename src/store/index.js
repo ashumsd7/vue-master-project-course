@@ -1,10 +1,12 @@
 import {createStore} from 'vuex'
 import coachesModule from './modules/coaches/index'
+import requestModule from './modules/requests/index'
 
 const store= createStore({
     modules:{
         //this is namespaced
-        coaches: coachesModule
+        coaches: coachesModule,
+        requests:requestModule
     },
     state(){
         return{
