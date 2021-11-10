@@ -44,6 +44,8 @@ export default{
         if(!response.ok){
             //error while loading coaches
             console.log('error while loading coaches',response);
+            const error= new Error(responseData.message || 'Failed to fetch coaches List')
+            throw error;
         }
         const coaches=[];
     for (const key in responseData){
