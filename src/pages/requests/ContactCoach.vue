@@ -1,4 +1,7 @@
 <template>
+<div class="">
+
+
 
 <base-dialog @close='handleError' title='An error is occured while making request to a coach' :show="!!error">
 <p>{{error}}</p></base-dialog>
@@ -20,6 +23,7 @@
       <base-button>Send Message</base-button>
     </div>
   </form>
+  </div>
 </template>
 
 <script>

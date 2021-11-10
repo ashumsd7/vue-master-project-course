@@ -1,4 +1,6 @@
 <template>
+<div class="">
+
  <section>
      <base-card>
     
@@ -6,6 +8,8 @@
      <coach-form @save-data='saveData'></coach-form>
       </base-card>
  </section>
+     
+</div>
 </template>
 
 <script>

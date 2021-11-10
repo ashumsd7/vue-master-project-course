@@ -1,4 +1,6 @@
 <template>
+<div class="">
+
 <base-dialog @close='handleError' :show='!!error' title="There is an error.....">
 <p>{{error}}</p>
 </base-dialog>
@@ -36,6 +38,8 @@
 </div></p>
     </base-card>
   </section>
+    
+</div>
 </template>
 
 <script>

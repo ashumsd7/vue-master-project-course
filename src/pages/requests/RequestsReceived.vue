@@ -1,4 +1,7 @@
 <template>
+<div class="">
+
+
 <base-dialog @close='handleError' :show="!!error" title="Something went wrong while fetching request">
 <p>{{error}}</p>
 </base-dialog>
@@ -18,6 +21,7 @@ You havn't received any request yet:(
       </h3>
     </base-card>
   </section>
+  </div>
 </template>
 
 <script>
