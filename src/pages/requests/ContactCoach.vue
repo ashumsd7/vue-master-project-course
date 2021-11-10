@@ -1,4 +1,11 @@
 <template>
+
+<base-dialog @close='handleError' title='An error is occured while making request to a coach' :show="!!error">
+<p>{{error}}</p></base-dialog>
+<div v-if="isLoading" class="">
+
+<base-spinner> </base-spinner> 
+</div>
   <form @submit.prevent="submitForm" action="">
     <div class="form-control">
       <label for="email">Your Email</label>
@@ -16,31 +23,53 @@
 </template>
 
 <script>
+
 export default {
+  
   data() {
     return {
       email: "",
       message: "",
       formIsValid: true,
+
+      error:null,
+      isLoading:false
+      
     };
   },
   methods: {
-    submitForm() {
+   async submitForm() {
       this.formIsValid = true;
       if (this.email == "" || !this.email.includes("@") || this.message == "") {
         this.formIsValid = false;
         return;
       }
-      this.$store.dispatch('requests/contactCoach',{
-          email:this.email,
-          message:this.message,
-          coachId:this.$route.params.id
 
+      try{
+          this.isLoading= true
 
-      })
+        await  this.$store.dispatch('requests/contactCoach',{
+              email:this.email,
+              message:this.message,
+              coachId:this.$route.params.id
+    
+    
+          })
+      }
+      catch(err){
+          this.isLoading= false
+          this.error= err;
+          
+      }
 
-      this.$router.replace('/coaches')
+if(!this.error){
+    this.$router.replace('/coaches')
+}
+    //   
     },
+    handleError(){
+        this.error= null;
+    }
   },
 };
 </script>
