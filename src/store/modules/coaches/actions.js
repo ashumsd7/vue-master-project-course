@@ -36,6 +36,9 @@ export default{
     },
 
    async loadCoaches(context,payload){
+       if(!payload.forceRefresh && !context.getters.shouldUpdate){
+           return;
+       }
         //fetching coaches
         const response =  await fetch(`https://vue-master-project-default-rtdb.firebaseio.com/coaches.json`)
 
@@ -63,7 +66,8 @@ export default{
 
     }
 
-    context.commit('setCoaches',coaches )
+    context.commit('setCoaches',coaches );
+    context.commit('setFetchTimestamp' );
 
 
 

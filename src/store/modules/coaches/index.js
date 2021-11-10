@@ -6,7 +6,9 @@ import getters from './getters'
 export default{
     namespaced:true,
     state(){
+      
         return{
+          lastFetch:null,
             coaches:[
                 {
                   id: 'c1',
