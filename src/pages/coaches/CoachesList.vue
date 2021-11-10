@@ -6,7 +6,7 @@
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline">REFRESH</base-button>
+        <base-button @click="loadCoaches" mode="outline">REFRESH</base-button>
         <base-button v-if="!isCoach" link to="/register">Register a Coach</base-button>
       </div>
       <ul v-if="hasCoaches">
@@ -43,6 +43,9 @@ export default {
     CoachItem,
     CoachFilter,
   },
+  created() {
+    this.loadCoaches();
+  },
   computed: {
     filteredCoaches() {
       //this is name space accessing of indexjs state
@@ -72,6 +75,10 @@ export default {
       //   console.log('rcvd filters', updatedFilters);
       this.activeFiltes = updatedFilters;
     },
+
+    loadCoaches(){
+      this.$store.dispatch('coaches/loadCoaches')
+    }
   },
 };
 </script>
