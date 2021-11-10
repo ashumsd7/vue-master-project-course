@@ -11,7 +11,11 @@
       <ul v-else-if="hasRequests && !isLoading">
         <request-item v-for="req in receivedRequests" :key="req.id" :email="req.userEmail" :message="req.message"></request-item>
       </ul>
-      <h3 v-else>You havn't received any request yet:(</h3>
+      <h3 v-else>
+          <div class="alert alert-danger" role="alert">
+You havn't received any request yet:(
+</div>
+      </h3>
     </base-card>
   </section>
 </template>

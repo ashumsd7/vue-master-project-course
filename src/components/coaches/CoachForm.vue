@@ -128,12 +128,10 @@ export default {
     },
     validateForm() {
       this.formIsValid = true;
-
       this.firstName.isValid = true;
       this.lastName.isValid = true;
       this.description.isValid = true;
       this.areas.isValid = true;
-
       this.rate.isValid = true;
 
       if (this.firstName.val === "") {

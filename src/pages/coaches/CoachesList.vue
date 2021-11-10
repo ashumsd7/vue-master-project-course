@@ -31,7 +31,9 @@
           :areas="coach.areas"
         ></coach-item>
       </ul>
-      <h3 v-else>No Coacheds Found!!!</h3>
+      <p v-else><div class="alert alert-danger mt-2" role="alert">
+  ❌No Coaches Found.....❌
+</div></p>
     </base-card>
   </section>
 </template>
