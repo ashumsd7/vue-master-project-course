@@ -8,8 +8,9 @@
     </button>
     <div class="collapse navbar-collapse me-auto" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto">
-      <router-link class="ms-4   text-decoration-none text-danger text-white" to="/coaches">All Coches</router-link>
-      <router-link class="ms-4  text-decoration-none text-white" to="/requests">Requests</router-link>
+      <router-link class="ms-4   text-decoration-underline text-danger text-white" to="/coaches">All Coches</router-link>
+      <router-link class="ms-4  text-decoration-underline text-white" to="/requests">Requests</router-link>
+      <router-link class="ms-4  text-white btn btn-outline-danger" to="/auth">Sign in</router-link>
       </div>
     </div>
   </div>
