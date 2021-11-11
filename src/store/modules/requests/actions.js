@@ -15,8 +15,7 @@ export default{
 
 
         const responseData= await  response.json();
-        console.log('respose whil;e making req',responseData);
-        console.log(responseData.error);
+    
 
         if(!response.ok){
             const error= new Error(responseData.error || 'Failed to send request');
@@ -24,19 +23,24 @@ export default{
         }
 
 
-        console.log('response data when request is made',responseData );
+        
         newRequest.id= responseData.name;
         newRequest.coachId=   payload.coachId;
-        console.log('this is the request msg and all', newRequest);
+     
         context.commit('addRequest',newRequest)
     },
 
    async fetchRequests(context){
        const coachId= context.rootGetters.userId;
-    const response= await   fetch(`https://vue-master-project-default-rtdb.firebaseio.com/requests/${coachId}.json`)
+
+       const token= context.rootGetters.token;
+
+     
+    const response= await   fetch(`https://vue-master-project-default-rtdb.firebaseio.com/requests/${coachId}.json?auth=`+ token)
     const responseData= await response.json()
     if(!response.ok){
-        const err = new Error(responseData.error || 'Something went wrong while fetching requests')
+        // responseData.error ||
+        const err = new Error( ' Unauthorized or Something went wrong while fetching requests')
         throw err;
     }
 

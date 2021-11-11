@@ -34,17 +34,17 @@
         },
         methods: {
             setFilter(e) {
-                // console.log(e.target);
+                
                 const inputId= e.target.id;
-                // console.log(inputId);
+               
                 const isActive= e.target.checked;
-                console.log(isActive);
+               
                 const updatedFilters={
                     ...this.filters,
                     [inputId]:isActive
                 }
                 this.filters= updatedFilters
-                // console.log(updatedFilters);
+                
              this.$emit('changeFilter', updatedFilters)   
             }
         },

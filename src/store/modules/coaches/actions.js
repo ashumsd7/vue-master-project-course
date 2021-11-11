@@ -13,7 +13,10 @@ export default{
 
         //resposnse only be stored when its is done
         //its like ( it is inside then)
-    const response =  await fetch(`https://vue-master-project-default-rtdb.firebaseio.com/coaches/${userId}.json`,{
+     
+const token= context.rootGetters.token;
+      
+    const response =  await fetch(`https://vue-master-project-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=${token}`,{
             method:'PUT',
             body:JSON.stringify(coachData)
         })
@@ -22,10 +25,16 @@ export default{
         //respose has json method which also returns promise thats why we r using await here too
 
         // const responseData= await response.json();
+
         if(!response.ok){
          //error while registering coaches
-            console.log('error while registering coaches',response);
+        //  const error= new Error(responseData.error)
+         const error= new Error("You can't do registration w/o login")
+        throw error;
+            
         }
+    
+    
 
         //this will only execute when all promoises are done
 
@@ -46,7 +55,7 @@ export default{
 
         if(!response.ok){
             //error while loading coaches
-            console.log('error while loading coaches',response);
+       
             const error= new Error(responseData.message || 'Failed to fetch coaches List')
             throw error;
         }

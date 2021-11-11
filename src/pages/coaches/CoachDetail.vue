@@ -61,14 +61,14 @@ export default {
     };
   },
   created() {
-    console.log(this.id);
+   
     this.selectedCoach = this.$store.getters["coaches/coaches"].find(
       (coach) => {
         return coach.id === this.id;
       }
     );
 
-    console.log(this.selectedCoach);
+   
   },
 };
 </script>

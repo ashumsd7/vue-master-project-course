@@ -12,8 +12,11 @@
     <base-card>
       <div class="controls">
         <base-button @click="loadCoaches(true)" mode="outline">REFRESH</base-button>
-        <base-button v-if="!isCoach" link to="/register"
+        <base-button v-if="!isCoach && !isLoading && isLoggedIn" link to="/register"
           >Register a Coach</base-button
+        >
+        <base-button v-if="!isLoggedIn" link to="/auth"
+          >Login to Register</base-button
         >
       </div>
 <!-- LOADING SPINNER -->
@@ -66,6 +69,9 @@ export default {
     this.loadCoaches();
   },
   computed: {
+    isLoggedIn(){
+      return this.$store.getters.isAuthenticated;
+    },
     filteredCoaches() {
       //this is name space accessing of indexjs state
       const coaches = this.$store.getters["coaches/coaches"];
