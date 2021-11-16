@@ -30,15 +30,15 @@
           >
           <router-link
             v-if="!isLoggedIn"
-            class="ms-4 w-25 text-white btn btn-outline-danger"
+            class="ms-4 w-50 text-white btn btn-outline-danger"
             to="/auth"
             >Sign in</router-link
           >
-          <router-link
+          <base-button
             v-if="isLoggedIn"
-            class="ms-4 w-25 text-white btn btn-danger"
-            to="/auth" @click="logout"
-            >Log out</router-link
+            class="ms-4 w-50 text-white btn btn-danger"
+             @click="logout"
+            >Log out</base-button
           >
         </div>
       </div>
@@ -56,6 +56,7 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch('logout')
+      this.$router.replace('/auth')
     }
   },
 };
