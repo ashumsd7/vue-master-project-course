@@ -20,6 +20,19 @@ export default {
   created() {
     this.$store.dispatch('tryLogin')
   },
+  computed:{
+    didAutoLogout(){
+    
+     return this.$store.getters.didAutoLogout;
+    }
+  },
+  watch:{
+    didAutoLogout(cur,old){
+      if(cur && cur!==old){
+        this.$router.replace('/coaches')
+      }
+    }
+  }
  
 
 }
